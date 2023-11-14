@@ -45,9 +45,9 @@ function CartProvider({ children }: CartProviderProps) {
 
 
         try {
-            const productIndex = cart.find(product => product.id === id)
+            const findProduct = cart.find(product => product.id === id)
 
-            if (!productIndex) {
+            if (!findProduct) {
 
                 const addProductCart = {
                     id: id,
@@ -65,7 +65,13 @@ function CartProvider({ children }: CartProviderProps) {
                 ])
             }
             else {
-                throw new Error()
+                const updateCart = cart.filter(product => findProduct.id != product.id)
+                findProduct.amount += 1
+                setIsCart([
+                    findProduct,
+                    ...updateCart
+                ])
+                
             }
 
         } catch (e) {

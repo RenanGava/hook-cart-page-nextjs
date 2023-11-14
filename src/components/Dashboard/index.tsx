@@ -4,7 +4,6 @@ import { Product } from '../Product'
 import S from './styled'
 import axios from 'axios'
 import { SkelletonComponent } from '../SkelletonComponent'
-import { GetServerSideProps } from 'next'
 
 
 export interface ProductProps {
