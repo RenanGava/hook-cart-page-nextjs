@@ -7,10 +7,7 @@ import { useCartContext } from '@/context/UseCartContext'
 
 export function Product({ id, brand, description, name, price, photo }: ProductProps) {
 
-
     const { handleAddProductCart } = useCartContext()
-
-
 
     return (
         <S.Container>

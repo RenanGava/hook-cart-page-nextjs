@@ -14,6 +14,7 @@ const Grid = styled.div`
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1rem;

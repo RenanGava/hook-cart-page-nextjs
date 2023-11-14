@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { Product } from '../Product'
 import S from './styled'
 import axios from 'axios'
+import { SkelletonComponent } from '../SkelletonComponent'
+import { GetServerSideProps } from 'next'
 
 
 export interface ProductProps {
@@ -16,7 +18,8 @@ export interface ProductProps {
 
 export function Dashboard() {
 
-    const [products, setProducts] = useState<ProductProps[]>([] || null)
+    const [products, setProducts] = useState<ProductProps[]>()
+
 
     useEffect(() => {
         async function getData() {
@@ -31,7 +34,7 @@ export function Dashboard() {
         <S.Container>
 
             <S.Grid>
-                {products.map(product => {
+                {products ? products.map(product => {
                     return (
                         <Product
                             key={product.id}
@@ -43,8 +46,9 @@ export function Dashboard() {
                             price={product.price}
                         />
                     )
-                })}
+                }) : <SkelletonComponent />}
             </S.Grid>
+
         </S.Container>
     )
 }
